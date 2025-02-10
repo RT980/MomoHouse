@@ -20,7 +20,7 @@ export default function Navigations() {
         <li><NavLink to="/about" activeClassName="text-gray-800">About Us</NavLink></li>
         <li><NavLink to="/service" activeClassName="text-gray-800">Our Service</NavLink></li>
         <li><NavLink to="/menu" activeClassName="text-gray-800">Our Menu</NavLink></li>
-        <li><NavLink to="/contact" activeClassName="text-gray-800">Contact Us</NavLink></li>
+        {/* <li><NavLink to="/contact" activeClassName="text-gray-800">Contact Us</NavLink></li> */}
         <li><NavLink to="/advices" activeClassName="text-gray-800">Allergy Advices</NavLink></li>
       </ul>
 
