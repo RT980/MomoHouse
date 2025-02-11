@@ -20,15 +20,23 @@ export default function Navigations() {
         <li><NavLink to="/about" activeClassName="text-gray-800">About Us</NavLink></li>
         <li><NavLink to="/service" activeClassName="text-gray-800">Our Service</NavLink></li>
         <li><NavLink to="/menu" activeClassName="text-gray-800">Our Menu</NavLink></li>
-        {/* <li><NavLink to="/contact" activeClassName="text-gray-800">Contact Us</NavLink></li> */}
         <li><NavLink to="/advices" activeClassName="text-gray-800">Allergy Advices</NavLink></li>
       </ul>
 
       {/* Social Media Icons & Contact Button */}
       <div className="flex items-center space-x-4">
+      <NavLink to="https://www.facebook.com/ree.tes.566148 " target="_blank">
+
         <FaFacebook className="size-8 text-gray-500 hover:text-gray-800" />
+        </NavLink>
+        <NavLink to="https://www.tiktok.com/@reetes_6.9" target="_blank">
+          {" "}
         <AiFillTikTok className="size-9 text-gray-500 hover:text-gray-800" />
+        </NavLink>
+        <NavLink to="https://www.instagram.com/reeteschaudhary/" target="_blank">
+          {" "}
         <FaSquareInstagram className="size-9 text-gray-500 hover:text-gray-800" />
+        </NavLink>
         <NavLink to="/contact" className="bg-orange-600 text-white px-4 py-2 rounded-full hover:bg-orange-700">
           Contact Us
         </NavLink>
