@@ -28,7 +28,7 @@ const MenuItem = ({ title, price, description, image, badge }) => (
 
     {/* Price */}
     <div className="mb-2">
-      <span className="text-orange-500 font-medium">₹</span>
+      <span className="text-orange-500 font-medium">NRs</span>
       <span className="text-lg text-orange-500 font-bold">{price}</span>
     </div>
 
