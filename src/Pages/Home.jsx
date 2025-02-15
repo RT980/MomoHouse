@@ -6,37 +6,40 @@ import man from "../assets/man.png";
 import buff from "../assets/buff.png";
 import fry from "../assets/fry.png";
 import cmomo from "../assets/cmomo.png";
+import person from "../assets/HomeImage/man.jpeg";
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState('Buff');
 
   const categories = ['Buff', 'Chicken', 'Veg'];
-  
+
   const recipes = [
     {
       name: 'Buff Momo',
       price: 150,
       image: buff,
-      category: 'Buff'
+      category: 'Buff',
     },
     {
       name: 'Buff Fry Momo',
       price: 180,
       image: fry,
-      category: 'Buff'
+      category: 'Buff',
     },
     {
       name: 'Buff C. Momo',
       price: 200,
       image: cmomo,
-      category: 'Buff'
-    }
+      category: 'Buff',
+    },
   ];
 
+  const filteredRecipes = recipes.filter((recipe) => recipe.category === activeCategory);
+
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10 overflow-hidden">
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10">
         <section className="relative flex flex-col lg:flex-row items-center justify-between w-full max-w-6xl">
           <div className="max-w-xl text-center lg:text-left z-30">
             <p className="text-gray-500 tracking-widest uppercase text-sm">Restaurant</p>
@@ -84,7 +87,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="w-full md:w-1/2 text-center md:text-left mt-8 md:mt-0">
+        <div className="w-full md:w-1/2 text-center md:text-left mt-8 md:mt-0 px-4">
           <h2 className="text-3xl font-bold text-gray-900">
             Why Customers <span className="text-orange-500">Love Us</span>
           </h2>
@@ -95,7 +98,7 @@ export default function Home() {
           </p>
           <button className="mt-6 px-6 py-3 bg-teal-600 text-white rounded-lg flex items-center gap-2 hover:bg-teal-700">
             Explore Our Story
-            <span>&rarr;</span>
+            <span>→</span>
           </button>
         </div>
       </section>
@@ -107,7 +110,7 @@ export default function Home() {
             Our <span className="text-orange-500">Most Popular</span> Recipes
           </h2>
           <p className="text-gray-600">
-            Browse through a varieties of recipes with fresh ingredients selected only from the best places
+            Browse through a variety of recipes with fresh ingredients selected only from the best places
           </p>
         </div>
 
@@ -116,10 +119,10 @@ export default function Home() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full ${
+              className={`px-6 py-2 rounded-full transition-colors duration-300 ${
                 activeCategory === category
-                ? 'border-2 border-black font-medium'
-                : 'bg-gray-100 text-gray-600'
+                  ? 'bg-orange-600 text-white border-2 border-black font-medium'
+                  : 'bg-gray-100 text-gray-600'
               }`}
             >
               {category}
@@ -128,38 +131,56 @@ export default function Home() {
         </div>
 
         <div className="relative">
-          <button className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md">
-      
-          </button>
-
-          <div className="flex justify-center gap-8">
-            {recipes.map((recipe) => (
-              <div key={recipe.name} className="text-center">
+          <div className="flex justify-center gap-8 overflow-x-auto">
+            {filteredRecipes.map((recipe) => (
+              <div key={recipe.name} className="text-center flex-shrink-0">
                 <img
                   src={recipe.image}
                   alt={recipe.name}
-                  className="w-64 h-48  mb-4"
+                  className="w-64 h-48 mb-4 rounded-lg"
                 />
                 <h3 className="font-bold text-xl mb-2">{recipe.name}</h3>
                 <p className="text-xl">
-                  NRs<span className="text-orange-500">{recipe.price}</span>
+                  NRs <span className="text-orange-500">{recipe.price}</span>
                 </p>
               </div>
             ))}
           </div>
-
-          <button className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-md">
-          </button>
         </div>
 
         <div className="text-center mt-12">
-          
-        <NavLink
-              to="/menu"
-              className="mt-6 inline-flex items-center bg-cyan-900 text-white px-6 py-3 rounded-full shadow-md hover:bg-orange-700 transition"
-            >
-              Explore Food Menu →
-            </NavLink>
+          <NavLink
+            to="/menu"
+            className="inline-flex items-center bg-cyan-900 text-white px-6 py-3 rounded-full shadow-md hover:bg-orange-700 transition"
+          >
+            Explore Food Menu →
+          </NavLink>
+        </div>
+      </div>
+
+      {/* Service Section */}
+      <div className="min-h-screen bg-white">
+        <header className="text-center py-8">
+          <h1 className="text-3xl font-bold">
+            <span className="text-orange-500">We Offer People</span>
+            <span className="text-gray-800"> The Service They Want</span>
+          </h1>
+        </header>
+
+        <div className="relative h-150 mt-10">
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div
+            className="relative h-full bg-cover bg-center flex items-center justify-center shadow-[500px]"
+            style={{ backgroundImage: `url(${person})` }}
+          >
+            <div className="text-center text-white z-10">
+              <h2 className="text-4xl font-bold">Process behind the making</h2>
+              <p className="text-lg">See how only chefs cook the best momos</p>
+              <button className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition-colors">
+                Watch the Video
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
